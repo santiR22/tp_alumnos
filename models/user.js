@@ -52,15 +52,15 @@ const UserSchema = new Schema({
     },
     hobbies: {
         type: String,
-        default: true
+        default: "sin_datos"
     },
     deporte_favorito: {
         type: String,
-        default: true
+        default: "sin_datos"
     },
     comida_favorita: {
         type: String,
-        default: true
+        default: "sin_datos"
     },
     username: {
         type: String,
