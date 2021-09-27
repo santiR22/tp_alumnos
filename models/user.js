@@ -43,7 +43,7 @@ const UserSchema = new Schema({
         required: true
     },
     habilidades: {
-        type: Number,
+        type: String,
         required: true
     },
     gitHub_profile: {

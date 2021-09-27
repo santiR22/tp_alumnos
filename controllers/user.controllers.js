@@ -11,7 +11,19 @@ ctrlHome.rutaGet = async (req, res) => {
 
 // Controlador que almacena un nuevo usuario...
 ctrlHome.rutaPost = async (req, res) => {
-    const {username, password} = req.body;
+    const {
+        nombre, 
+        apellido, 
+        edad, 
+        direccion, 
+        contacto, 
+        experiencia_laboral,
+        conocimientos,
+        habilidades,
+        gitHub_profile,
+        username, 
+        password
+    } = req.body;
 
     try {
         const user = new User({
