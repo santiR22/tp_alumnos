@@ -14,7 +14,19 @@ ctrlHome.rutaPost = async (req, res) => {
     const {username, password} = req.body;
 
     try {
-        const user = new User({username, password});
+        const user = new User({
+            nombre, 
+            apellido, 
+            edad, 
+            direccion, 
+            contacto, 
+            experiencia_laboral,
+            conocimientos,
+            habilidades,
+            gitHub_profile,
+            username,
+            password
+        });
         await user.save();
         return res.json({msg: 'Usuario creado correctamente'});
 
@@ -22,39 +34,6 @@ ctrlHome.rutaPost = async (req, res) => {
 
         console.log('Error al crear un nuevo usuario: ', error);
         res.status(500).json({msg: 'Error al crear nuevo usuario'})
-    }
-};
-
-// Controlador que actualiza la informacion de los usuarios...
-ctrlHome.rutaPut = async (req, res) => {
-
-    const {username, password, id} = req.body;
-    try {
-
-        const user = await User.findByIdAndUpdate(id, {username, password}, {new: true});
-
-        return res.json({
-            msg: 'Usuario actualizado correctamente',
-            user
-        });
-    } catch (error) {
-        console.log('Error al actualizar usuario: ', error);
-    }
-};
-
-// Controlador para eliminar un usuario de la BD físicamente...
-ctrlHome.rutaDelete = async (req, res) => {
-    const {id} = req.body;
-
-    try {
-        // Ejecucion normal del programa...
-        await User.findByIdAndDelete(id);
-
-        return res.json({msg: 'Usuario eleminado correctamente'});
-    } catch (error) {
-
-        // Si ocurre un error...
-        console.log('Error al eliminar usuario: ', error);
     }
 };
 
